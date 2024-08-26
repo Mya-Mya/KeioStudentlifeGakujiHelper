@@ -65,8 +65,6 @@ const has = (list, query) => list.indexOf(query) != -1
 
 LOCALSTORAGE_KEY = "KeioStudentlifeGakujiHelper.OtherclubNew"
 
-console.log(localStorage)
-
 /**@type{Object<string, HTMLElement>} */
 let inputElements = {}
 for (const e of document.querySelectorAll("input")) {
