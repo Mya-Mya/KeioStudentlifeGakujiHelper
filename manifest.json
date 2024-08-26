@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "KeioStudentlifeGakujiHelper",
+    "version": "1.0",
+    "description": "慶應義塾大学のWebシステム「学生団体活動支援システム」への入力を支援します",
+    "permissions": [
+        "storage",
+        "scripting"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://studentlife.gakuji.keio.ac.jp/ja/other_club/events/new"
+            ],
+            "js": [
+                "otherclub_new.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
