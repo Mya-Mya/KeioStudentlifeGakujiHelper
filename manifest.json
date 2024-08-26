@@ -12,7 +12,11 @@
             "matches": [
                 "https://studentlife.gakuji.keio.ac.jp/ja/other_club/events/new"
             ],
+            "css": [
+                "style.css"
+            ],
             "js": [
+                "common.js",
                 "otherclub_new.js"
             ]
         }
