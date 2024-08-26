@@ -6,6 +6,12 @@ const INPUT_NAMES = [
     "event[name]",
     "event[other_host]",
     "event[description]",
+    // スケジュール
+    "event[schedules_attributes][0][date]",
+    "event[schedules_attributes][0][start_at]",
+    "event[schedules_attributes][0][location_name]",
+    "event[schedules_attributes][0][location_address]",
+    "event[schedules_attributes][0][members_count]",
     // 参加人数
     "event[students_count]",
     "event[staffs_count]",
@@ -40,6 +46,7 @@ const INPUT_NAMES = [
 
 const SELECT_NAMES = [
     // 基本情報
+    "event[area]",
     "event[host_type]",
     // 教員
     "event[chairman_faculty]",
