@@ -93,21 +93,11 @@ const restore = () => {
         console.error("Local Storageに保存されていたJSON文字列が破損しています．")
         return
     }
-    for (const key of INPUT_NAMES) {
-        const element = inputElements[key]
-        try {
-            element.value = data.input[key]
-        } catch {
-            console.error(`Input ${key} の取得に失敗しました．`)
-        }
+    for (const key in data.input) {
+        inputElements[key].value = data.input[key]
     }
-    for (const key of SELECT_NAMES) {
-        const element = selectElements[key]
-        try {
-            element.value = data.select[key]
-        } catch {
-            console.error(`Select ${key} の取得に失敗しました．`)
-        }
+    for (const key in data.select) {
+        selectElements[key].value = data.select[key]
     }
 }
 restore()
