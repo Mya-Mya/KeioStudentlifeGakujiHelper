@@ -63,4 +63,21 @@ const fs = new FormStorage([
 
     // 備考
     "event[note]"
-],"KeioStudentlifeGakujiHelper.OtherclubNew", [])
+], "KeioStudentlifeGakujiHelper.OtherclubNew", [
+    Action("学生責任者→申請責任者へコピー", () => {
+        [
+            ["event[admin_student_name]", "event[event_admin_student_name]"],
+            ["event[admin_student_id]", "event[event_admin_student_id]"],
+            ["event[admin_student_other_faculty]", "event[event_admin_student_other_faculty]"],
+            ["event[admin_student_mobile_phone]", "event[event_admin_student_mobile_phone]"],
+            ["event[admin_student_phone]", "event[event_admin_student_phone]"],
+            ["event[admin_student_email]", "event[event_admin_student_email]"],
+            ["event[admin_student_faculty]", "event[event_admin_student_faculty]"]
+        ].forEach(item => {
+            const src = item[0]
+            const dst = item[1]
+            fs.domname2dom[dst].value = fs.domname2dom[src].value
+        })
+        fs.save()
+    })
+])

@@ -72,18 +72,38 @@ class FormStorage {
     }
 
     setupBottombar(barContents) {
-        const bar = document.createElement("div")
-        bar.id = "bottombar"
-        bar.append(
+        const bottombar = document.createElement("div")
+        bottombar.classList.add("KeioStudentlifeGakujiHelperComponent")
+        bottombar.id = "bottombar"
+        bottombar.append(
             Span("入力支援稼働中"),
-            Action("保存データを全消去", () => this.clear()),
+        )
+        document.body.append(bottombar)
+
+        const toppanel = document.createElement("div")
+        toppanel.classList.add("KeioStudentlifeGakujiHelperComponent")
+        toppanel.id = "toppanel"
+        toppanel.append(
+            Title("Keio Student-Life Gakuji Helper稼働中"),
             Link("GitHub", "https://github.com/Mya-Mya/KeioStudentlifeGakujiHelper"),
+            Action("保存データを全消去", () => this.clear()),
             ...barContents
         )
-        document.body.append(bar)
+
+        document.body.insertBefore(toppanel, document.body.childNodes[0])
     }
 }
 
+const DivWrapped = (child) => {
+    const e = document.createElement("div")
+    e.append(child)
+    return e
+}
+const Title = (text)=>{
+    const e = document.createElement("h3")
+    e.innerText = text
+    return e
+}
 const Span = (text) => {
     const e = document.createElement("span")
     e.innerText = text
@@ -93,12 +113,12 @@ const Action = (text, callback) => {
     const e = document.createElement("a")
     e.innerText = text
     e.addEventListener("click", callback)
-    return e
+    return DivWrapped(e)
 }
 const Link = (text, url) => {
     const e = document.createElement("a")
     e.innerText = text
     e.href = url
     e.target = "_blank"
-    return e
+    return DivWrapped(e)
 }
